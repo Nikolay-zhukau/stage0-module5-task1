@@ -6,7 +6,11 @@
 
     <groupId>com.epam.stage0</groupId>
     <artifactId>algorithms_and_data_structures</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>test</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
