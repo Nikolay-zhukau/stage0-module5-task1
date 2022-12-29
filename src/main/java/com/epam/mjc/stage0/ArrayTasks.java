@@ -1,6 +1,6 @@
 package com.epam.mjc.stage0;
 
-import java.util.Arrays;
+
 
 /**
  * Here are the tasks for working with the arrays.
@@ -14,7 +14,7 @@ public class ArrayTasks {
      */
     public String[] seasonsArray() {
         String[] season = {"Winter", "Spring", "Summer", "Autumn"};
-        System.out.println(Arrays.toString(season));
+
         return season;
     }
 
@@ -33,7 +33,7 @@ public class ArrayTasks {
         for (int num = 0; num < consecutiveNumbers.length; num++) {
             consecutiveNumbers[num] = num + 1;
         }
-        System.out.println(Arrays.toString(consecutiveNumbers));
+
         return consecutiveNumbers;
 
     }
@@ -69,12 +69,12 @@ public class ArrayTasks {
         int indexOf = 0;
         for (int index = 0; index < arr.length; index++) {
             if (arr[index] == number) {
-                indexOf = index + 1;
+                indexOf = index;
+                break;
             } else {
                 indexOf = -1;
             }
         }
-        System.out.println(indexOf);
         return indexOf;
 
     }
@@ -94,7 +94,7 @@ public class ArrayTasks {
             newStringArr[newIndex] = arr[lastIndex];
 
         }
-        System.out.println(Arrays.toString(newStringArr));
+
         return newStringArr;
 
     }
@@ -131,7 +131,7 @@ public class ArrayTasks {
             newArrIndex++;
         }
         newArr = newArrPos;
-        System.out.println(Arrays.toString(newArr));
+
         return newArr;
 
     }
@@ -146,6 +146,35 @@ public class ArrayTasks {
      * arr = [[5, 4], [7]]       -> [[7], [4, 5]]
      */
     public int[][] sortRaggedArray(int[][] arr) {
-        return null;
+        int[][] newArrTOSort = arr;
+        int[][] newArr = new int[0][0];
+        int temp2 = 0;
+        int temp[] = new int[0];
+
+        for (int index = 0; index < newArrTOSort.length; index++) {
+            for (int secondIndex = index + 1; secondIndex < newArrTOSort.length; secondIndex++) {
+                if (newArrTOSort[index].length > newArrTOSort[secondIndex].length) {
+                    temp = newArrTOSort[index];
+                    newArrTOSort[index] = newArrTOSort[secondIndex];
+                    newArrTOSort[secondIndex] = temp;
+                }
+            }
+        }
+        for (int firstArr = 0; firstArr < newArrTOSort.length; firstArr++) {
+
+            for (int index = 0; index < newArrTOSort[firstArr].length; index++) {
+
+                for (int secondIndex = index + 1; secondIndex < newArrTOSort[firstArr].length; secondIndex++) {
+
+                    if (newArrTOSort[firstArr][index] > newArrTOSort[firstArr][secondIndex]) {
+                        temp2 = newArrTOSort[firstArr][index];
+                        newArrTOSort[firstArr][index] = newArrTOSort[firstArr][secondIndex];
+                        newArrTOSort[firstArr][secondIndex] = temp2;
+                    }
+                }
+            }
+        }
+        newArr = newArrTOSort;
+        return newArr;
     }
 }
